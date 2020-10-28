@@ -1,22 +1,14 @@
 import PokemonCard from "components/PokemonCard";
-import styled from "styled-components";
-
-const Container = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  grid-gap: 40px;
-`;
-const PokemonList = () => {
+import { useEffect } from "react";
+import { Container } from "./style";
+const PokemonList = ({ pokemons }) => {
+  useEffect(() => {
+    console.log(pokemons);
+  }, [pokemons]);
   return (
     <Container>
-      <PokemonCard />
-      <PokemonCard />
-      <PokemonCard />
-      <PokemonCard />
-      <PokemonCard />
-      <PokemonCard />
-      <PokemonCard />
+      {pokemons.length > 0 &&
+        pokemons.map((pokemon, i) => <PokemonCard key={i} pokemon={pokemon} />)}
     </Container>
   );
 };

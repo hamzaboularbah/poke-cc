@@ -1,9 +1,6 @@
-import { takeEvery, call, put } from "redux-saga/effects";
+import * as pokemonSagas from "./pokemonsSagas";
+import { all, fork } from "redux-saga/effects";
 
-export default function* watcherSaga() {
-  yield takeEvery("TEST_ACTION", testSaga);
-}
-
-function* testSaga() {
-  console.log("test saga");
+export default function* rootSaga() {
+  yield all([...Object.values(pokemonSagas)].map(fork));
 }

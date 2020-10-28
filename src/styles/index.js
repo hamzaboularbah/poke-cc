@@ -10,16 +10,18 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-      font-family: "Roboto";
+      font-family: "Lato";
+      background-color: #2C3D6C;
   }
   a {
+      color: inherit;
     text-decoration: none;
   }
 
   `;
 
 export const GlobalContainer = styled.div`
-  width: 80%;
+  width: 85%;
   padding: 20px 20px;
   margin: 0 auto;
 `;
