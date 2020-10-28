@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H2 } from "styles/common";
+import { H3 } from "styles/common";
 
 export const Container = styled.div`
   width: 100%;
@@ -12,6 +12,10 @@ export const Container = styled.div`
   background-color: white;
   &:hover {
     transform: translateY(-1px) scale(1.01);
+    svg {
+      opacity: 1;
+      transform: translateX(3px);
+    }
   }
 `;
 export const CardContent = styled.div`
@@ -45,12 +49,6 @@ export const CardFooter = styled.div`
       transform: translateX(-2px);
       opacity: 0;
     }
-    &:hover {
-      svg {
-        opacity: 1;
-        transform: translateX(3px);
-      }
-    }
   }
 `;
 export const PokemonArwork = styled.div`
@@ -63,7 +61,7 @@ export const PokemonArwork = styled.div`
   }
 `;
 export const PokemonInfos = styled.div`
-  padding: 26px;
+  padding: 22px;
 `;
 export const InfosHeader = styled.div`
   display: flex;
@@ -92,7 +90,7 @@ export const Type = styled.div`
 export const NameAndID = styled.div`
   width: 30%;
 `;
-export const Name = styled(H2)`
+export const Name = styled(H3)`
   text-transform: capitalize;
   margin-bottom: 10px;
 `;

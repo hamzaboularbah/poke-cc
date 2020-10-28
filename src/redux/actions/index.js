@@ -1,14 +1,16 @@
 import t from "../actionsTypes";
 
-export const loadPokemons = () => {
+export const loadPokemons = (loadMoreURL) => {
   return {
     type: t.LOAD_POKEMONS,
+    payload: {
+      loadMoreURL: loadMoreURL ? loadMoreURL : null,
+    },
   };
 };
 
-export const savePokemons = (pokemons) => {
+export const loadPokemonTypes = () => {
   return {
-    type: t.SAVEPOKEMONS,
-    payload: pokemons,
+    type: t.LOAD_POKEMON_TYPES,
   };
 };

@@ -6,22 +6,31 @@ export function* loadPokemonsSaga() {
   yield takeLatest(t.LOAD_POKEMONS, loadPokemonsWorkerSaga);
 }
 
-function* loadPokemonsWorkerSaga() {
+function* loadPokemonsWorkerSaga({ payload: { loadMoreURL } }) {
   try {
-    const pokemonsResponse = yield call(fetchPokemons);
+    yield put({ type: t.POKEMONS_LOADING, payload: true });
+    const pokemonsResponse = yield call(fetchPokemons, { loadMoreURL });
     yield put({ type: t.SAVE_POKEMONS, payload: pokemonsResponse });
+    yield put({ type: t.POKEMONS_LOADING, payload: false });
   } catch (e) {
     console.error(e);
+    yield put({ type: t.POKEMONS_LOADING, payload: false });
   }
 }
+
+// Helpers
 
 // Fetch a list of pokemon names
 // Chaining promises and checking Promise.all
 
-const fetchPokemons = () => {
+const fetchPokemons = ({ loadMoreURL }) => {
+  const requestOptions = loadMoreURL
+    ? { endpoint: loadMoreURL, params: {} }
+    : { endpoint: "/pokemon", params: { limit: 20 } };
+
   try {
     return api
-      .get("/pokemon", { params: { limit: 20 } })
+      .get(requestOptions.endpoint, { params: { ...requestOptions.params } })
       .then(({ data: { results, next, previous, count } }) =>
         Promise.all(results.map((pokemon) => fetchPokemon(pokemon))).then(
           (pokemons) => ({

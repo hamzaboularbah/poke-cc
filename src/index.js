@@ -6,13 +6,13 @@ import store from "store";
 import { GlobalContainer, GlobalStyle } from "styles";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <Provider store={store}>
       <GlobalStyle />
       <GlobalContainer>
         <App />
       </GlobalContainer>
     </Provider>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById("root")
 );

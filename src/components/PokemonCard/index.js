@@ -43,7 +43,9 @@ const PokemonCard = ({
             </NameAndID>
             <Types>
               {types.map(({ type: { name } }) => (
-                <Type bgColor={typesColors[name]}>{name}</Type>
+                <Type key={name} bgColor={typesColors[name]}>
+                  {name}
+                </Type>
               ))}
             </Types>
           </InfosHeader>
