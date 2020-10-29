@@ -28,7 +28,7 @@ const pokemonsReducer = (state = initialState, action) => {
         next: action.payload.next.replace("https://pokeapi.co/api/v2", ""),
         previous: action.payload.previous,
       };
-    case t.SET_FILTER:
+    case t.FILTER_POKEMONS:
       return {
         ...state,
         filterCriteria: action.payload,

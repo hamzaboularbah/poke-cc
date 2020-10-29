@@ -46,7 +46,7 @@ const Home = () => {
 
   const handlePokemonFilter = (e) => {
     dispatch({
-      type: t.SET_FILTER,
+      type: t.FILTER_POKEMONSEMONS,
       payload: e ? e.map(({ value }) => value) : [],
     });
   };

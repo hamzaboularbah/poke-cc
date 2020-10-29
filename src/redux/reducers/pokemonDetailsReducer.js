@@ -5,7 +5,6 @@ const initialState = {
   isPokemonLoading: false,
   art_work: null,
   types: [],
-  moves: [],
   stats: [],
   abilities: [],
   held_items: [],
