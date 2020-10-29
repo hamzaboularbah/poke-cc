@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import t from "redux/actionsTypes";
-import { fetchPokemonByName, fetchPokemons } from "api";
+import { fetchPokemons } from "api";
 
 export function* loadPokemonsSaga() {
   yield takeLatest(t.LOAD_POKEMONS, loadPokemonsWorkerSaga);
@@ -17,5 +17,3 @@ function* loadPokemonsWorkerSaga({ payload: { loadMoreURL } }) {
     yield put({ type: t.POKEMONS_LOADING, payload: false });
   }
 }
-
-// Helpers

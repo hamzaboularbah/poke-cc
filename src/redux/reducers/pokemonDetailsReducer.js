@@ -10,6 +10,7 @@ const initialState = {
   abilities: [],
   held_items: [],
   forms: [],
+  sprites: [],
 };
 
 const pokemonDetailsReducer = (state = initialState, action) => {
@@ -26,11 +27,13 @@ const pokemonDetailsReducer = (state = initialState, action) => {
         held_items: action.payload.held_items.map(({ item: { name } }) => name),
         forms: action.payload.forms.map(({ name }) => name),
         types: action.payload.types.map(({ type: { name } }) => name),
-        moves: action.payload.moves.map(({ move: { name } }) => name),
         stats: action.payload.stats.map(({ base_stat, stat: { name } }) => ({
           name,
           base_stat,
         })),
+        sprites: Object.keys(action.payload.sprites)
+          .filter((key) => key !== "other" && key !== "versions")
+          .map((key) => action.payload.sprites[key]),
       };
     case t.POKEMON_DETAILS_LOADING:
       return {

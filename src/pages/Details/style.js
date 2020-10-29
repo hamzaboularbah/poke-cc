@@ -88,7 +88,7 @@ export const Stats = styled.div`
   grid-gap: 40px 20px;
   margin: 30px auto;
   @media (max-width: 600px) {
-    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, minmax(132px, 1fr));
   }
 `;
 
@@ -112,5 +112,17 @@ export const StatItemValue = styled.p`
         content: "";
       }
     }
+  }
+`;
+
+export const Sprites = styled.div`
+  margin: 80px auto;
+  max-width: 900px;
+  width: 100%;
+  @media (max-width: 480px) {
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 20px;
   }
 `;

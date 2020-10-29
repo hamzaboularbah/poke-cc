@@ -18,7 +18,10 @@ import {
   PokemonName,
   StatItemName,
   StatItemValue,
+  Sprites,
 } from "./style";
+
+import { H2 } from "styles/common";
 
 const Details = ({
   match: {
@@ -178,6 +181,13 @@ const Details = ({
           </StatItemValue>
         </div>
       </Stats>
+
+      <Sprites>
+        <H2 dark>Sprites</H2>
+
+        {pokemon.sprites.length > 0 &&
+          pokemon.sprites.map((sprite, i) => <img key={i} src={sprite} />)}
+      </Sprites>
     </Container>
   );
 };

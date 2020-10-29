@@ -11,9 +11,13 @@ import MultiSelect from "components/MultiSelect";
 import t from "redux/actionsTypes";
 
 const Home = () => {
-  const { pokemons, filteredPokemons, pokemonsLoading, error } = useSelector(
-    ({ pokemons }) => pokemons
-  );
+  const {
+    pokemons,
+    filteredPokemons,
+    filterCriteria,
+    pokemonsLoading,
+    error,
+  } = useSelector(({ pokemons }) => pokemons);
   const { pokemonTypes, pokemonTypesLoading } = useSelector(
     ({ pokemonTypes }) => pokemonTypes
   );
@@ -69,7 +73,8 @@ const Home = () => {
 
       {pokemons.length > 0 && (
         <PokemonList
-          pokemons={filteredPokemons.length > 0 ? filteredPokemons : pokemons}
+          filterCriteria={filterCriteria}
+          pokemons={filterCriteria.length > 0 ? filteredPokemons : pokemons}
         />
       )}
       {error && <p role="alert">Oops ! Error loading pokemons</p>}
