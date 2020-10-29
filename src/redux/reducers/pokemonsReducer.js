@@ -2,10 +2,10 @@ import t from "../actionsTypes";
 
 const initialState = {
   pokemons: [],
+  filteredPokemons: [],
   pokemonsLoading: false,
   next: null,
   previous: null,
-  filterCriteria: [],
   count: 0,
   error: null,
 };
@@ -22,7 +22,11 @@ const pokemonsReducer = (state = initialState, action) => {
     case t.SET_FILTER:
       return {
         ...state,
-        filterCriteria: action.payload,
+        filteredPokemons: state.pokemons.filter(({ types }) =>
+          types
+            .map(({ type: { name } }) => name)
+            .some((type) => action.payload.includes(type))
+        ),
       };
     case t.POKEMONS_LOADING:
       return {

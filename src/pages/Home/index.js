@@ -11,7 +11,7 @@ import MultiSelect from "components/MultiSelect";
 import t from "redux/actionsTypes";
 
 const Home = () => {
-  const { pokemons, pokemonsLoading, filterCriteria, error } = useSelector(
+  const { pokemons, filteredPokemons, pokemonsLoading, error } = useSelector(
     ({ pokemons }) => pokemons
   );
   const { pokemonTypes, pokemonTypesLoading } = useSelector(
@@ -40,13 +40,6 @@ const Home = () => {
     }, 200);
   });
 
-  // Filter Pokemon list, if we have a filterCriteria, we show the filtered ones, else we list all the pokemon list
-  const filteredPokemon = pokemons.filter(({ types }) =>
-    types
-      .map(({ type: { name } }) => name)
-      .some((type) => filterCriteria.includes(type))
-  );
-
   const handlePokemonFilter = (e) => {
     dispatch({
       type: t.SET_FILTER,
@@ -74,12 +67,12 @@ const Home = () => {
         </FilterInput>
       </Header>
 
-      {!pokemonsLoading && !error && (
+      {pokemons.length > 0 && (
         <PokemonList
-          pokemons={filterCriteria.length > 0 ? filteredPokemon : pokemons}
+          pokemons={filteredPokemons.length > 0 ? filteredPokemons : pokemons}
         />
       )}
-      {error && <p role="alert">Oops ! Error loading pokemon</p>}
+      {error && <p role="alert">Oops ! Error loading pokemons</p>}
 
       {pokemonsLoading && <Spinner color={"transparent"} />}
     </div>

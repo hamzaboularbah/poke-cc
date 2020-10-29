@@ -7,7 +7,7 @@ import rootSagas from "redux/sagas";
 const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {};
-const middleware = [sagaMiddleware];
+const middleware = [sagaMiddleware, logger];
 const enhancers = [];
 if (process.env.NODE_ENV === "development") {
   const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__;
