@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import PokemonList from "components/PokemonList";
 import { useEffect } from "react";
 import { loadPokemons, loadPokemonTypes } from "redux/actions";
@@ -12,7 +11,7 @@ import MultiSelect from "components/MultiSelect";
 import t from "redux/actionsTypes";
 
 const Home = () => {
-  const { pokemons, pokemonsLoading, filterCriteria } = useSelector(
+  const { pokemons, pokemonsLoading, filterCriteria, error } = useSelector(
     ({ pokemons }) => pokemons
   );
   const { pokemonTypes, pokemonTypesLoading } = useSelector(
@@ -74,9 +73,14 @@ const Home = () => {
           )}
         </FilterInput>
       </Header>
-      <PokemonList
-        pokemons={filterCriteria.length > 0 ? filteredPokemon : pokemons}
-      />
+
+      {!pokemonsLoading && !error && (
+        <PokemonList
+          pokemons={filterCriteria.length > 0 ? filteredPokemon : pokemons}
+        />
+      )}
+      {error && <p role="alert">Oops ! Error loading pokemon</p>}
+
       {pokemonsLoading && <Spinner color={"transparent"} />}
     </div>
   );

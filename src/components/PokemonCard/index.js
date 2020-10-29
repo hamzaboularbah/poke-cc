@@ -1,6 +1,6 @@
 import typesColors from "constants/typesColors";
 import { Link } from "react-router-dom";
-import TypeTag from "components/TypeTag";
+import TypeTag from "components/Tag";
 import {
   Container,
   CardContent,
@@ -30,7 +30,7 @@ const PokemonCard = ({
   },
 }) => {
   return (
-    <Container>
+    <Container aria-label={"pokemon-card"}>
       <CardContent>
         <PokemonArwork>
           <img src={other["official-artwork"].front_default} alt="" />

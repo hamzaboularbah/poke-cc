@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import t from "redux/actionsTypes";
-import api from "api";
+import { fetchPokemonTypes } from "api";
 
 export function* loadPokemonsSaga() {
   yield takeLatest(t.LOAD_POKEMON_TYPES, loadPokemonTypesWorkerSaga);
@@ -17,12 +17,3 @@ function* loadPokemonTypesWorkerSaga() {
     yield put({ type: t.POKEMON_TYPES_LOADING, payload: false });
   }
 }
-
-const fetchPokemonTypes = async () => {
-  try {
-    const { data } = await api.get("/type");
-    return data.results;
-  } catch (e) {
-    console.error(e);
-  }
-};

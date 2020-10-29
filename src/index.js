@@ -6,13 +6,11 @@ import store from "store";
 import { GlobalContainer, GlobalStyle } from "styles";
 
 ReactDOM.render(
-  <React.Fragment>
-    <Provider store={store}>
-      <GlobalStyle />
-      <GlobalContainer>
-        <App />
-      </GlobalContainer>
-    </Provider>
-  </React.Fragment>,
+  <Provider store={store}>
+    <GlobalStyle />
+    <GlobalContainer>
+      <App />
+    </GlobalContainer>
+  </Provider>,
   document.getElementById("root")
 );

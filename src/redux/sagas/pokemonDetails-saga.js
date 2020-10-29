@@ -1,5 +1,5 @@
 import t from "redux/actionsTypes";
-import { fetchPokemonById } from "redux/helpers";
+import { fetchPokemonById } from "api";
 import { call, put, takeLatest } from "redux-saga/effects";
 
 export function* fetchPokemonDetailsSaga() {

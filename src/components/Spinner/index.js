@@ -3,7 +3,7 @@ import { Hourglass } from "react-spinners-css";
 
 const Spinner = ({ color }) => {
   return (
-    <Container>
+    <Container data-testid={"loading-spinner"}>
       <Hourglass color={color} />
     </Container>
   );

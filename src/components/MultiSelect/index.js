@@ -1,6 +1,5 @@
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-
 const animatedComponents = makeAnimated();
 
 const styles = {
@@ -16,24 +15,15 @@ const styles = {
     boxShadow: "none",
   }),
 };
-const MultiSelect = ({
-  options,
-  placeholder,
-  isLoading,
-  isLoadingMessage,
-  onChange,
-}) => {
+
+const MultiSelect = (props) => {
   return (
     <Select
-      loadingMessage={isLoadingMessage}
-      isLoading={isLoading}
       styles={styles}
-      placeholder={placeholder}
       closeMenuOnSelect={false}
       components={animatedComponents}
       isMulti
-      options={options}
-      onChange={(e) => onChange(e)}
+      {...props}
     />
   );
 };

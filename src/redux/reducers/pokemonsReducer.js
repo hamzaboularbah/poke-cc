@@ -7,6 +7,7 @@ const initialState = {
   previous: null,
   filterCriteria: [],
   count: 0,
+  error: null,
 };
 
 const pokemonsReducer = (state = initialState, action) => {
@@ -27,6 +28,11 @@ const pokemonsReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemonsLoading: action.payload,
+      };
+    case t.POKEMONS_LOADING_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

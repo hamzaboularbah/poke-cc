@@ -1,8 +1,7 @@
 import { useEffect } from "react";
-import { useParams, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPokemonDetails } from "redux/actions";
-import TypeTag from "components/TypeTag";
+import TypeTag from "components/Tag";
 import typesColors from "constants/typesColors";
 import { Link } from "react-router-dom";
 import ReactApexCharts from "react-apexcharts";
@@ -21,9 +20,12 @@ import {
   StatItemValue,
 } from "./style";
 
-const Details = () => {
+const Details = ({
+  match: {
+    params: { pokemonId },
+  },
+}) => {
   const dispatch = useDispatch();
-  const { pokemonId } = useParams();
   const pokemon = useSelector(({ pokemonDetails }) => pokemonDetails);
 
   // get current Pokemon
@@ -103,7 +105,7 @@ const Details = () => {
           <PokemonImage>
             <img src={pokemon.art_work} alt="" />
           </PokemonImage>
-          <PokemonName>{pokemon.name}</PokemonName>
+          <PokemonName aria-label="pokemon-name">{pokemon.name}</PokemonName>
           <Types>
             {pokemon.types?.map((type, i) => (
               <TypeTag large key={i} bgColor={typesColors[type]}>
