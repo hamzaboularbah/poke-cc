@@ -11,8 +11,6 @@ import Spinner from "components/Spinner";
 import MultiSelect from "components/MultiSelect";
 import t from "redux/actionsTypes";
 
-const Container = styled.div``;
-
 const Home = () => {
   const { pokemons, pokemonsLoading, filterCriteria } = useSelector(
     ({ pokemons }) => pokemons
@@ -58,7 +56,7 @@ const Home = () => {
   };
 
   return (
-    <Container>
+    <div>
       <Header>
         <H2>Explore Pokemon</H2>
         <FilterInput>
@@ -80,7 +78,7 @@ const Home = () => {
         pokemons={filterCriteria.length > 0 ? filteredPokemon : pokemons}
       />
       {pokemonsLoading && <Spinner color={"transparent"} />}
-    </Container>
+    </div>
   );
 };
 

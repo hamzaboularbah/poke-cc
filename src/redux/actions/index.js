@@ -14,3 +14,9 @@ export const loadPokemonTypes = () => {
     type: t.LOAD_POKEMON_TYPES,
   };
 };
+export const fetchPokemonDetails = (pokemonId) => {
+  return {
+    type: t.FETCH_POKEMON_DETAILS,
+    payload: pokemonId,
+  };
+};

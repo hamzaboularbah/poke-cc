@@ -24,4 +24,7 @@ export const GlobalContainer = styled.div`
   width: 85%;
   padding: 20px 20px;
   margin: 0 auto;
+  @media (max-width: 920px) {
+    width: 100%;
+  }
 `;

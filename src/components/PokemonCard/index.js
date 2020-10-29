@@ -1,5 +1,6 @@
 import typesColors from "constants/typesColors";
 import { Link } from "react-router-dom";
+import TypeTag from "components/TypeTag";
 import {
   Container,
   CardContent,
@@ -8,7 +9,6 @@ import {
   PokemonInfos,
   InfosHeader,
   Types,
-  Type,
   NameAndID,
   Name,
   Index,
@@ -43,9 +43,9 @@ const PokemonCard = ({
             </NameAndID>
             <Types>
               {types.map(({ type: { name } }) => (
-                <Type key={name} bgColor={typesColors[name]}>
+                <TypeTag key={name} bgColor={typesColors[name]}>
                   {name}
-                </Type>
+                </TypeTag>
               ))}
             </Types>
           </InfosHeader>
@@ -66,7 +66,7 @@ const PokemonCard = ({
         </PokemonInfos>
       </CardContent>
       <CardFooter>
-        <Link to={"/hamza"}>
+        <Link to={`/${id}`}>
           <span>more</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
