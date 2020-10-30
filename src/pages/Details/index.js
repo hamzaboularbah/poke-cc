@@ -19,6 +19,7 @@ import {
   StatItemName,
   StatItemValue,
   Sprites,
+  BackButton,
 } from "./style";
 
 import { H2 } from "styles/common";
@@ -65,6 +66,27 @@ const Details = ({
 
   return (
     <Container>
+      <Link to={`/`}>
+        <BackButton>
+          <LeftArrow>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="feather feather-chevron-left"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </LeftArrow>
+          <p>Back to home</p>
+        </BackButton>
+      </Link>
       <InfoSection>
         <Controls>
           <LeftArrow>

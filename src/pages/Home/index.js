@@ -42,7 +42,7 @@ const Home = () => {
         dispatch(loadPokemons(loadMoreURL));
       }
     }, 200);
-  });
+  }, []);
 
   const handlePokemonFilter = (e) => {
     dispatch({

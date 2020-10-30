@@ -6,6 +6,9 @@ export const Container = styled.div`
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+  @media (max-width: 480px) {
+    padding: 20px 20px;
+  }
 `;
 
 export const PokemonImage = styled.div`
@@ -13,6 +16,9 @@ export const PokemonImage = styled.div`
   img {
     max-width: 250px;
     width: 100%;
+    @media (max-width: 480px) {
+      max-width: 220px;
+    }
   }
 `;
 
@@ -22,8 +28,6 @@ export const Types = styled.div`
   justify-content: center;
   align-items: center;
   margin: 20px auto;
-  > div {
-  }
 `;
 
 export const PokemonName = styled(H2)`
@@ -48,22 +52,22 @@ export const InfoSection = styled.div`
   @media (max-width: 920px) {
     flex-direction: column;
   }
+  @media (max-width: 480px) {
+    top: 150px;
+  }
 `;
 
 export const Controls = styled.div`
   position: absolute;
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: calc(60% - 80px);
   top: 200px;
   @media (max-width: 920px) {
-    width: 70%;
-
+    width: 80%;
     top: 150px;
   }
   @media (max-width: 480px) {
-    width: 86%;
-
     top: 150px;
   }
 `;
@@ -125,5 +129,25 @@ export const Sprites = styled.div`
   }
   h2 {
     margin-bottom: 20px;
+  }
+`;
+
+export const BackButton = styled.div`
+  position: relative;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  p {
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    transform: translateY(-2px);
+  }
+  @media (max-width: 600px) {
+    top: 0px;
+    margin-bottom: 20px;
+    p {
+      font-size: 16px;
+    }
   }
 `;
