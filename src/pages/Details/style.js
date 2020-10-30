@@ -104,6 +104,7 @@ export const StatItemValue = styled.p`
   .item,
   .form {
     text-transform: capitalize;
+    line-height: 24px;
     &::after {
       content: ",       ";
     }
