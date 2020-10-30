@@ -31,6 +31,7 @@ const Home = () => {
 
   // load on scroll
   useEffect(() => {
+    console.log("loading on scrolls");
     window.onscroll = debounce(() => {
       const {
         pokemons: { next: loadMoreURL },
@@ -42,7 +43,7 @@ const Home = () => {
         dispatch(loadPokemons(loadMoreURL));
       }
     }, 200);
-  }, []);
+  }, [dispatch]);
 
   const handlePokemonFilter = (e) => {
     dispatch({
